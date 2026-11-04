@@ -1,0 +1,295 @@
+
+/* =====================================================
+   RAID PREMIUM — RESPONSIVE LAYOUT SYSTEM
+   Desktop / Laptop / Tablet / Mobile
+   ===================================================== */
+
+/* ---------- GLOBAL RESPONSIVE RULES ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* ---------- PRESENTATION CONTAINER ---------- */
+
+#presentation {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+
+  padding: clamp(20px, 4vw, 64px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* ---------- SLIDE CONTENT ---------- */
+
+.slide-content {
+  width: min(100%, 1440px);
+  max-width: 1440px;
+  margin-inline: auto;
+
+  min-height: 0;
+  max-height: 100%;
+}
+
+.slide-title {
+  max-width: 100%;
+  font-size: clamp(25px, 3.2vw, 46px);
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.slide-subtitle {
+  font-size: clamp(14px, 1.35vw, 19px);
+  line-height: 1.5;
+}
+
+.slide-lead {
+  font-size: clamp(15px, 1.5vw, 20px);
+  line-height: 1.55;
+}
+
+/* ---------- CONTENT GRIDS ---------- */
+
+.sections-grid,
+.content-grid,
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+  width: 100%;
+}
+
+.content-card,
+.section-card,
+.code-card {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.content-card img,
+.section-card img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- TEXT AND CODE ---------- */
+
+.slide p,
+.slide li {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.slide pre {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+  tab-size: 4;
+}
+
+.slide code {
+  overflow-wrap: anywhere;
+}
+
+.slide table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.slide table th,
+.slide table td {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- QUESTIONS AND ANSWERS ---------- */
+
+.questions-grid,
+.answers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 1.1vw, 14px);
+  align-content: start;
+}
+
+.question-item,
+.answer-item {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.question-item p,
+.answer-item p {
+  margin-block: 0;
+}
+
+/* ---------- LAPTOP ---------- */
+
+@media (max-width: 1200px) {
+  .slide {
+    padding: 32px;
+  }
+
+  .slide-title {
+    font-size: clamp(26px, 3.5vw, 40px);
+  }
+
+  .sections-grid,
+  .content-grid,
+  .cards-grid {
+    gap: 14px;
+  }
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+  .slide {
+    padding: 26px;
+  }
+
+  .sections-grid,
+  .content-grid,
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .questions-grid,
+  .answers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .slide-title {
+    font-size: clamp(25px, 4.5vw, 36px);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 600px) {
+  .slide {
+    padding: 18px 14px;
+  }
+
+  .slide-title {
+    font-size: clamp(23px, 7vw, 31px);
+    line-height: 1.15;
+  }
+
+  .slide-subtitle {
+    font-size: 14px;
+  }
+
+  .slide-lead {
+    font-size: 15px;
+  }
+
+  .sections-grid,
+  .content-grid,
+  .cards-grid,
+  .questions-grid,
+  .answers-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .content-card,
+  .section-card,
+  .code-card {
+    padding: 14px;
+  }
+
+  .slide pre {
+    font-size: 12px;
+  }
+}
+
+/* ---------- SHORT SCREENS ---------- */
+
+@media (max-height: 760px) and (min-width: 601px) {
+  .slide {
+    padding-block: 18px;
+  }
+
+  .slide-title {
+    font-size: clamp(23px, 2.7vw, 34px);
+  }
+
+  .slide-subtitle {
+    font-size: 14px;
+  }
+
+  .slide-lead {
+    font-size: 15px;
+  }
+
+  .content-card,
+  .section-card {
+    padding: 14px;
+  }
+}
+
+/* ---------- VERY SHORT SCREENS ---------- */
+
+@media (max-height: 600px) {
+  .slide {
+    padding-block: 10px;
+  }
+
+  .slide-title {
+    font-size: 24px;
+  }
+
+  .slide-subtitle,
+  .slide-lead {
+    font-size: 13px;
+  }
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
